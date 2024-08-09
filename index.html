@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<link rel="stylesheet"
+    href="../static/home.css">
+
+<body>
+    <p>TITANIC VOYAGE RETURNS ?</p>
+    <form
+        action="{{ url_for('predict') }}"
+        method="post">
+        <div class="container">
+            <p>Passenger Class</p>
+            <input type="number"
+                name="Pclass"
+                placeholder="SELECT FROM (1, 2, 3)">
+        </div>
+        <br>
+        <div class="container">
+            <p>Gender</p>
+            <input type="number"
+                name="Sex"
+                placeholder="0-F AND 1-M">
+        </div>
+
+        <br>
+        <div class="container">
+            <p>Age</p>
+            <input type="number"
+                name="Age"
+                placeholder="(19 to 45)">
+        </div>
+
+        <br>
+        <div class=" container">
+            <p>Fare</p>
+            <input type="number"
+                name="Fare" step="0.01"
+                placeholder="TILL 2 DECIMALS">
+        </div>
+        <br>
+        <button type="submit">Predict
+            Survival</button>
+    </form>
+    <p id="output">{{prediction_txt}}
+    </p>
+</body>
+
+</html>
